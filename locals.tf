@@ -2,7 +2,7 @@ locals {
   common_tags = {
     project = var.project
     environment = var.environment
-    Managedby = Terraform
+    Managedby = "Terraform"
 
   }
     resource_name = "${var.project}-${var.environment}"
