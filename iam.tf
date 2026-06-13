@@ -1,6 +1,6 @@
 resource "aws_iam_role" "cluster" {
   name = "${var.project}-${var.environment}-eks-controlplane"
-  assume_role_policy = data.aws_iam_policy_document.eks_controlplane
+  assume_role_policy = data.aws_iam_policy_document.eks_controlplane.json
   tags = merge(local.common_tags,{
     name = "${var.project}-${var.environment}-eks-controlplane"
   })
@@ -17,7 +17,7 @@ resource "aws_iam_role_policy_attachment" "cluster_policy" {
 
 resource "aws_iam_role" "node" {
   name = "${var.project}-${var.environment}-eks-node"
-  assume_role_policy = data.aws_iam_policy_document.eks_node
+  assume_role_policy = data.aws_iam_policy_document.eks_node.json
   tags = merge(local.common_tags,{
     name = "${var.project}-${var.environment}-eks-node"
   })
