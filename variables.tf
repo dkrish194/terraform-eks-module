@@ -64,3 +64,9 @@ variable "eks_managed_node_groups" {
     blue = {}
   }
 }
+
+variable "cluster_tags" {
+  description = "Additional tags to merge onto the EKS cluster resource"
+  type        = map(string)
+  default     = {}
+}
